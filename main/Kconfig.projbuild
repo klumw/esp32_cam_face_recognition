@@ -1,0 +1,18 @@
+# put here your custom config value
+menu "Application Configuration"
+    config MQTT_HOST
+        string "MQTT_HOST"
+        default "mqtt://myhost"
+        help
+            MQtt host name or ip address
+    config MQTT_TOPIC_RECOGNITION
+        string "MQTT TOPIC_RECOGNITION"
+        default "/topic/face/recognized/01"
+        help
+            Face recognition topic    
+    config MQTT_TOPIC_COMMAND
+        string "MQTT_TOPIC_COMMAND"
+        default "/topic/face/command/01"
+        help
+            Camera command topic        
+endmenu
