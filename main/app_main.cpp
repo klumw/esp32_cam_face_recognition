@@ -8,7 +8,6 @@
 #include "led.h"
 
 #define GPIO_BOOT GPIO_NUM_0
-
 #define BUTTON_FUNC GPIO_NUM_14
 
 
@@ -20,7 +19,7 @@ static QueueHandle_t xQueueLed = NULL;
 
 extern "C" void app_main()
 {
-    app_wifi_main();//STA AP mode
+    app_wifi_main();//STA or AP mode
     xQueueAIFrame = xQueueCreate(2, sizeof(camera_fb_t *));
     xQueueKeyState = xQueueCreate(1, sizeof(int *));
     xQueueEventLogic = xQueueCreate(1, sizeof(int *));

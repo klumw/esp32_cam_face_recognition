@@ -11,7 +11,9 @@ void led_task(void *arg)
     {
         xQueueReceive(xQueueLEDControlI, &(pLed_op), portMAX_DELAY);
         led_op = *pLed_op;
-        //ESP_LOGI("LED_TASK","High Watermark: %d",uxTaskGetStackHighWaterMark(NULL));
+#ifdef APP_DEBUG        
+        ESP_LOGI("LED_TASK","High Watermark: %d",uxTaskGetStackHighWaterMark(NULL));
+#endif        
         switch (led_op.state)
         {
         case LED_ALWAYS_OFF:
@@ -36,7 +38,6 @@ void led_task(void *arg)
             gpio_set_level(led_op.led_num, 1);
             break;
         case LED_ON_1S:
-            
             gpio_set_level(led_op.led_num, 1);
             vTaskDelay(1000 / portTICK_PERIOD_MS);
             gpio_set_level(led_op.led_num, 0);

@@ -160,7 +160,6 @@ static void task_process_handler(void *arg)
                         if (_gEvent == DETECT)
                         {
                             recognize_result = recognizer->recognize((uint16_t *)frame->buf, {(int)frame->height, (int)frame->width, 3}, detect_results.front().keypoint);
-                            // print_detection_result(detect_results);
                             if (recognize_result.id > 0)
                             {
                                 ESP_LOGI("RECOGNIZE", "Similarity: %f, Match ID: %d", recognize_result.similarity, recognize_result.id);
@@ -172,7 +171,9 @@ static void task_process_handler(void *arg)
                                 setTimeout(TIMEOUT_UNRECOGNIZED);
                             }
                             xQueueSend(xQueueResult, &recognize_result, 0);
-                            //ESP_LOGI("FACE_TASK","High Watermark: %d",uxTaskGetStackHighWaterMark(NULL));
+#ifdef APP_DEBUG
+                            ESP_LOGI("FACE_TASK", "High Watermark: %d", uxTaskGetStackHighWaterMark(NULL));
+#endif
                         }
                     }
                 }
