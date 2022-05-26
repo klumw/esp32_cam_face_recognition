@@ -33,7 +33,7 @@ Camera command topic name: MQTT_TOPIC_COMMAND
 
 ### ESP32-CAM-MB Module
 
-<img src="./docs/esp32-cam_boot_button.svg" width="250" height="250">
+<img src="./docs/esp32-cam_boot_button.svg" width="500" height="250">
 
 The boot button is connected to GPIO0 and GND.
 ### Usage example
