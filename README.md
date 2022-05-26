@@ -8,27 +8,28 @@ The camera can be integrated into a home automation system (via Mqtt) and thus i
 For better privacy protection video streaming over the network is not used.
 Because the cam uses a low power ESP32 microprocessor, power consumption during face recognition phase is only about 1 Watt.
 
-### Enrolling a face
+### Face enrollment
 
-Look into the camera and press and hold the boot button for about 3 seconds.The face params together with a Face ID are stored in flash memory.
+Face the camera and press and hold the boot button for about 3 seconds.The face parameters together with a Face ID are stored in flash memory.
 
-### Removing  a Face ID
+### Face deletion
 
 Press the boot button twice briefly. The last saved Face ID will be removed.
 
-### Transmitting the Face ID via Mqtt
+### Face recognition events
 
-If a face is recognized, the camera publishes the Face ID (a positive int value) to the face recognition topic. If an unknown face is detected, the camera will report this with an ID of -1.
+If a face is recognized, the Face ID (a positive int value) is published to the face recognition topic. If an unknown face is detected, an ID of -1 is published.
 
 ### Configuration
 
-The following parameters need to be configured via the menuconfig functionality of the ESP32 SDK. Some parameters have default values.
+The following parameters need to be configured via the menuconfig functionality of the ESP32 SDK.  
+Some parameters have default values.
 
-Wifi hostname: ESP_HOST_NAME
-Wifi SSID: ESP_WIFI_SSID
+Wifi hostname: ESP_HOST_NAME  
+Wifi SSID: ESP_WIFI_SSID  
 Wifi password: ESP_WIFI_PASSWORD  
 Mqtt host url: MQTT_HOST  
-Face recognition topic name: MQTT_TOPIC_RECOGNITION
+Face recognition topic name: MQTT_TOPIC_RECOGNITION  
 Camera command topic name: MQTT_TOPIC_COMMAND
 
 ### ESP32-CAM-MB Module
