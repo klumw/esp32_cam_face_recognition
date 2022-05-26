@@ -4,7 +4,7 @@ menu "Application Configuration"
         string "MQTT_HOST"
         default "mqtt://myhost"
         help
-            MQtt host name or ip address
+            MQtt host url
     config MQTT_TOPIC_RECOGNITION
         string "MQTT TOPIC_RECOGNITION"
         default "/topic/face/recognized/01"

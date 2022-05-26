@@ -91,7 +91,7 @@ void register_led(const gpio_num_t led_io_num_0,const gpio_num_t led_io_num_1, c
     esp_err_t err;
     xQueueLEDControlI = control_i;
     gpio_config_t gpio_conf;
-    gpio_conf.mode = GPIO_MODE_OUTPUT;//GPIO_MODE_OUTPUT_OD;
+    gpio_conf.mode = GPIO_MODE_OUTPUT;
     gpio_conf.pull_up_en = 1;
     gpio_conf.pull_down_en = 0;
     gpio_conf.intr_type = GPIO_INTR_DISABLE;

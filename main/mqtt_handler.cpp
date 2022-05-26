@@ -131,7 +131,7 @@ void mqtt_task(void *arg)
         }
         pLedState = &led_state;
         xQueueSend(xQueueLed, &pLedState, portMAX_DELAY);
-        vTaskDelay(1000);
+        vTaskDelay(100);
     }
 }
 

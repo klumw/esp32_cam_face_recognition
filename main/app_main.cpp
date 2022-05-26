@@ -19,16 +19,16 @@ static QueueHandle_t xQueueLed = NULL;
 
 extern "C" void app_main()
 {
-    app_wifi_main();//STA or AP mode
+    app_wifi_main();
     xQueueAIFrame = xQueueCreate(2, sizeof(camera_fb_t *));
     xQueueKeyState = xQueueCreate(1, sizeof(int *));
     xQueueEventLogic = xQueueCreate(1, sizeof(int *));
     xQueueFaceResult = xQueueCreate(1,sizeof(face_info_t *));
     xQueueLed = xQueueCreate(1,sizeof(led_mstate_t *));
 
-    register_button(BUTTON_FUNC, xQueueKeyState);
-    //register_camera(PIXFORMAT_RGB565, FRAMESIZE_240X240, 2, xQueueAIFrame);
-    register_camera(PIXFORMAT_RGB565, FRAMESIZE_VGA, 2, xQueueAIFrame);
+    register_button(GPIO_BOOT, xQueueKeyState);
+    register_camera(PIXFORMAT_RGB565, FRAMESIZE_240X240, 2, xQueueAIFrame);
+    //register_camera(PIXFORMAT_RGB565, FRAMESIZE_VGA, 2, xQueueAIFrame);
     register_event(xQueueKeyState, xQueueEventLogic);
     register_human_face_recognition(xQueueAIFrame, xQueueEventLogic, xQueueFaceResult, NULL, true);
     register_led(LED_UNRECOGNIZED,LED_RECOGNIZED, xQueueLed);
