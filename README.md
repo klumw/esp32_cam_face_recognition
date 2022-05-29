@@ -4,7 +4,7 @@ The goal of this project is to provide low cost face recognition for a home auto
 AI Thinker ESP32-CAM hardware is quite affordable and therefore suitable for low budget projects. For face recognition the Espressif esp-who library is used.  
 The multifunction (boot) button can be used to enroll or delete a face. This functionality can also be controlled via the cam command topic.  
 If an enrolled face is recognized, the cam LED flashes. Via Mqtt the ID of the recognized face is published.
-The camera can be integrated into a home automation system (via Mqtt) and thus indicate the presence of known persons or the presence of unknown persons.
+The camera can be integrated into a home automation system (via Mqtt) and thus indicate the presence of known or unknown persons.
 For better privacy protection video streaming over the network is not used.
 Because the cam uses a low power ESP32 microprocessor, power consumption during face recognition phase is only about 1 Watt.
 
