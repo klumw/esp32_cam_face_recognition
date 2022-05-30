@@ -41,53 +41,6 @@ static int64_t timer_next = 0;
 
 SemaphoreHandle_t xMutex;
 
-typedef enum
-{
-    SHOW_STATE_IDLE,
-    SHOW_STATE_DELETE,
-    SHOW_STATE_RECOGNIZE,
-    SHOW_STATE_ENROLL,
-} show_state_t;
-
-#define RGB565_MASK_RED 0xF800
-#define RGB565_MASK_GREEN 0x07E0
-#define RGB565_MASK_BLUE 0x001F
-#define FRAME_DELAY_NUM 16
-
-static void rgb_print(camera_fb_t *fb, uint32_t color, const char *str)
-{
-    fb_gfx_print(fb, (fb->width - (strlen(str) * 14)) / 2, 10, color, str);
-}
-
-static int rgb_printf(camera_fb_t *fb, uint32_t color, const char *format, ...)
-{
-    char loc_buf[64];
-    char *temp = loc_buf;
-    int len;
-    va_list arg;
-    va_list copy;
-    va_start(arg, format);
-    va_copy(copy, arg);
-    len = vsnprintf(loc_buf, sizeof(loc_buf), format, arg);
-    va_end(copy);
-    if (len >= sizeof(loc_buf))
-    {
-        temp = (char *)malloc(len + 1);
-        if (temp == NULL)
-        {
-            return 0;
-        }
-    }
-    vsnprintf(temp, len + 1, format, arg);
-    va_end(arg);
-    rgb_print(fb, color, temp);
-    if (len > 64)
-    {
-        free(temp);
-    }
-    return len;
-}
-
 static bool isTimeout(void)
 {
     return (esp_timer_get_time() > timer_next);
