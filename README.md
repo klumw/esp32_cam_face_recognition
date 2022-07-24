@@ -1,4 +1,4 @@
-## Face Recognition with AI Thinker ESP32-CAM
+## Face Recognition with AI Thinker ESP32-CAM and ESP-WHO Machine Learning library
 
 The goal of this project is to provide low cost face recognition for a home automation system.  
 AI Thinker ESP32-CAM hardware is quite affordable and therefore suitable for low budget projects. For face recognition the Espressif esp-who library is used.  
