@@ -44,3 +44,6 @@ If a person is not recognized, the person is asked to face the camera (for audio
 If the person does not comply or is unknown to the system, an alarm is triggered.
 If a face is recognized the system marks this person as present.
 If no ID is published for some time the person is marked as absent.
+
+### Video about this project
+[![Video about the project](https://github.com/klumw/esp32_cam_face_recognition/blob/main/docs/video_face_recogntion.png)](https://youtu.be/fqhLyVbfpzc)
